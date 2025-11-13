@@ -168,7 +168,7 @@ export default function Featured() {
                                     Scroll de la página activado
                                 </p>
                                 <p className="text-sm">
-                                    Presione Ctrl / Cmd*para volver a interactuar con el mapa.
+                                    Presione Ctrl / Cmd para volver a interactuar con el mapa.
                                 </p>
                             </div>
                         )}
