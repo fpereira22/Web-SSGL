@@ -1,3 +1,4 @@
+// components/promo.tsx
 "use client"
 
 import Image from "next/image"
@@ -50,33 +51,36 @@ export default function Section({ scrollY }: { scrollY: MotionValue<number> }) {
                 </motion.div>
             </div>
 
-            {/* TÍTULO: Posicionado ABSOLUTAMENTE en la parte superior central */}
-            <h3 className="absolute top-12 left-1/2 -translate-x-1/2 z-20 text-white text-xl md:text-3xl lg:text-5xl font-extrabold uppercase text-center">
+            {/* Título (ya responsivo) */}
+            <h3 className="absolute top-8 md:top-12 left-1/2 -translate-x-1/2 z-20 text-white text-lg sm:text-xl md:text-3xl lg:text-5xl font-extrabold uppercase text-center">
                 Misión / Visión
             </h3>
 
-            {/* CONTENEDOR PRINCIPAL DE CONTENIDO */}
-            <div className="relative z-10 p-6 md:p-12 text-white max-w-7xl w-full">
+            {/* Padding (ya responsivo) */}
+            <div className="relative z-10 p-4 sm:p-6 md:p-12 text-white max-w-7xl w-full">
                 
-                {/* 👇 GLASSMORPHISM: Fondo semitransparente y desenfocado 👇 */}
                 <div className="absolute inset-0 bg-white/10 backdrop-blur-md rounded-xl z-0 shadow-2xl"></div>
 
-                {/* Contenido (Misión/Visión) - Debe tener un z-index más alto que el fondo */}
+                {/* Contenedor (ya responsivo) */}
                 <div className="relative z-10 flex flex-col md:flex-row justify-center items-start gap-8 md:gap-12">
                     
                     {/* Sección MISIÓN (Izquierda) */}
-                    <div className="flex-1 max-w-xl pr-6 py-4">
-                        <h4 className="text-3xl md:text-4xl font-bold mb-4 uppercase">Misión</h4>
+                    {/* 🔴 CAMBIO CLAVE: 'pr-6' ahora es 'md:pr-6' */}
+                    <div className="flex-1 max-w-xl md:pr-6 py-4">
+                        {/* Título (ya responsivo) */}
+                        <h4 className="text-2xl md:text-4xl font-bold mb-4 uppercase">Misión</h4>
                         <p className="text-base md:text-lg leading-relaxed">
 En SSGL brindamos servicios de mantención vial y aseo industrial de alta calidad, comprometidos con la satisfacción de nuestros clientes mediante soluciones innovadoras, personal calificado y una gestión responsable que prioriza la seguridad, la eficiencia operativa y el respeto por el medio ambiente, contribuyendo activamente al desarrollo, conservación y mejora continua de la infraestructura vial del país                        </p>
                     </div>
 
-                    {/* Separador Vertical */}
+                    {/* Separador Vertical (ya responsivo) */}
                     <div className="hidden md:block border-l-2 border-white h-60"></div>
 
                     {/* Sección VISIÓN (Derecha) */}
-                    <div className="flex-1 max-w-xl pl-6 py-4">
-                        <h4 className="text-3xl md:text-4xl font-bold mb-4 uppercase">Visión</h4>
+                    {/* 🔴 CAMBIO CLAVE: 'pl-6' ahora es 'md:pl-6' */}
+                    <div className="flex-1 max-w-xl md:pl-6 py-4">
+                        {/* Título (ya responsivo) */}
+                        <h4 className="text-2xl md:text-4xl font-bold mb-4 uppercase">Visión</h4>
                         <p className="text-base md:text-lg leading-relaxed">
 Ser reconocidos a nivel nacional como una empresa líder en mantención vial y aseo industrial, destacando por la excelencia en la ejecución de nuestros servicios, la innovación constante, la sostenibilidad de nuestras operaciones y el compromiso de nuestro equipo humano, consolidando nuestra posición como un socio estratégico clave en la gestión y preservación de la infraestructura pública y privada del país                        </p>
                     </div>

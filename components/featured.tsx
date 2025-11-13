@@ -94,10 +94,11 @@ export default function Featured() {
     const mapEmbedUrl = "/folium_map.html"; 
 
     return (
-        <div className="min-h-screen px-6 py-12 lg:py-20 flex flex-col items-center bg-gray-50">
+        // CAMBIO: Padding horizontal (px-4) y vertical (py-16) ajustado para móvil
+        <div className="min-h-screen px-4 py-16 sm:px-6 lg:py-20 flex flex-col items-center bg-gray-50">
             
-            {/* Título Principal de la Sección */}
-            <h2 className="text-4xl md:text-6xl font-extrabold uppercase mb-12 text-gray-800">
+            {/* CAMBIO: Título más pequeño (text-3xl) y menos margen inferior (mb-10) en móvil */}
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold uppercase mb-10 md:mb-12 text-gray-800">
                 Experiencia
             </h2>
 
@@ -106,9 +107,10 @@ export default function Featured() {
             <div className="flex flex-col lg:flex-row max-w-7xl w-full bg-white shadow-xl rounded-xl overflow-hidden lg:items-start">
                 
                 {/* Columna Izquierda: Experiencia Profesional y Texto */}
-                {/* Se eliminó la altura fija lg:h-[600px] para que el texto fluya completamente */}
-                <div className="flex-1 p-8 md:p-12 flex flex-col justify-start">
-                    <h3 className="text-3xl md:text-4xl font-bold mb-6 uppercase text-gray-900">
+                {/* CAMBIO: Padding reducido en móvil (p-6) */}
+                <div className="flex-1 p-6 md:p-12 flex flex-col justify-start">
+                    {/* CAMBIO: Subtítulo más pequeño (text-2xl) en móvil */}
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 uppercase text-gray-900">
                         Experiencia Profesional
                     </h3>
                     {experienceContent}
@@ -118,6 +120,7 @@ export default function Featured() {
                 <div className="hidden lg:block border-l-2 border-white h-auto bg-white" style={{ width: '2px' }}></div>
 
                 {/* Columna Derecha: Mapa */}
+                {/* CAMBIO: Altura reducida en móvil (h-[400px]) y aumentada en lg (lg:h-[800px]) */}
                 <div className="flex-1 h-[400px] lg:h-[800px] bg-gray-200 relative"> 
                     <h3 className="text-center bg-gray-700 text-white py-2 text-lg font-semibold uppercase">
                         Cobertura y Zonas de Operación
@@ -165,7 +168,7 @@ export default function Featured() {
                                     Scroll de la página activado
                                 </p>
                                 <p className="text-sm">
-                                    Presione **Ctrl / Cmd** para volver a interactuar con el mapa.
+                                    Presione Ctrl / Cmd*para volver a interactuar con el mapa.
                                 </p>
                             </div>
                         )}
@@ -173,7 +176,7 @@ export default function Featured() {
                         {/* SUPERPOSICIÓN PEQUEÑA (Instrucción) */}
                         {mapActive && !scrollLockActive && (
                              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10 bg-black/70 text-white text-xs py-1 px-3 rounded-full shadow-lg">
-                                 Presione **Ctrl / Cmd** para activar el scroll de la página.
+                                 Presione Ctrl / Cmd para activar el scroll de la página.
                              </div>
                         )}
                     </div>

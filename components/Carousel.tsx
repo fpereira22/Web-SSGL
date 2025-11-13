@@ -86,17 +86,18 @@ export default function Carousel() {
   }
 
   return (
-    <div className="min-h-screen py-12 lg:py-20 flex flex-col items-center bg-gray-900">
+    // CAMBIO: Padding vertical ajustado (py-16)
+    <div className="min-h-screen py-16 lg:py-20 flex flex-col items-center bg-gray-900">
       
-      {/* Título de la Sección */}
-      <h2 className="text-4xl md:text-6xl font-extrabold uppercase mb-16 text-white text-center">
+      {/* CAMBIO: Título más pequeño (text-3xl) y menos margen (mb-12) en móvil */}
+      <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold uppercase mb-12 md:mb-16 text-white text-center">
         Nuestra Flota y Maquinaria
       </h2>
 
       {/* Contenedor del Carrusel */}
-      <div className="relative w-full max-w-5xl h-[400px] md:h-[600px] flex items-center justify-center">
+      <div className="relative w-full max-w-5xl h-[400px] md:h-[600px] flex items-center justify-center overflow-hidden">
         
-        {/* --- ANIMALES DE LAS IMÁGENES --- */}
+        {/* --- IMÁGENES DEL CARRUSEL --- */}
         {images.map((src, i) => {
           const position = getPosition(i, currentIndex, images.length)
           const isGlassmorphism = position === "prev" || position === "next"
@@ -128,18 +129,22 @@ export default function Carousel() {
 
         {/* --- CONTROLES DE NAVEGACIÓN (Flechas) --- */}
         <button
-          className="absolute left-4 z-30 p-3 bg-white/30 backdrop-blur-sm rounded-full text-white hover:bg-white/50 transition-colors"
+          // CAMBIO: Padding (p-2) y posición (left-2) ajustados en móvil
+          className="absolute left-2 sm:left-4 z-30 p-2 sm:p-3 bg-white/30 backdrop-blur-sm rounded-full text-white hover:bg-white/50 transition-colors"
           onClick={() => paginate(-1)}
           aria-label="Imagen anterior"
         >
-          <ChevronLeft size={32} />
+          {/* CAMBIO: Se usa className para tamaño responsivo (h-6 w-6) en lugar de 'size' */}
+          <ChevronLeft className="h-6 w-6 sm:h-8 sm:w-8" />
         </button>
         <button
-          className="absolute right-4 z-30 p-3 bg-white/30 backdrop-blur-sm rounded-full text-white hover:bg-white/50 transition-colors"
+          // CAMBIO: Padding (p-2) y posición (right-2) ajustados en móvil
+          className="absolute right-2 sm:right-4 z-30 p-2 sm:p-3 bg-white/30 backdrop-blur-sm rounded-full text-white hover:bg-white/50 transition-colors"
           onClick={() => paginate(1)}
           aria-label="Imagen siguiente"
         >
-          <ChevronRight size={32} />
+          {/* CAMBIO: Se usa className para tamaño responsivo (h-6 w-6) en lugar de 'size' */}
+          <ChevronRight className="h-6 w-6 sm:h-8 sm:w-8" />
         </button>
       </div>
     </div>
