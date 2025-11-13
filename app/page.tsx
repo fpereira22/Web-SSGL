@@ -6,19 +6,18 @@ import Hero from "@/components/hero"
 import Featured from "@/components/featured"
 import Promo from "@/components/promo"
 import Footer from "@/components/footer"
+// 1. Importar el nuevo componente de carrusel
+import Carousel from "@/components/Carousel" 
 
-// 1. Importa useMotionValue
 import { useMotionValue } from "framer-motion"
 
 export default function Home() {
   
-  // 2. Crea un MotionValue para rastrear los píxeles de scroll
   const scrollY = useMotionValue(0)
 
   useEffect(() => {
     const lenis = new Lenis()
 
-    // 3. Sincroniza el scroll de Lenis con el MotionValue
     lenis.on('scroll', (e) => {
       scrollY.set(e.animatedScroll)
     })
@@ -30,18 +29,26 @@ export default function Home() {
 
     requestAnimationFrame(raf)
 
-    // Buena práctica: limpiar Lenis cuando el componente se desmonte
     return () => {
       lenis.destroy()
     }
-  }, [scrollY]) // 4. Añade scrollY como dependencia
+  }, [scrollY])
 
   return (
     <main>
-      {/* 5. Pasa el MotionValue (scrollY) a los componentes hijos */}
+      {/* 1. Hero */}
       <Hero scrollY={scrollY} />
-      <Featured />
+
+      {/* 2. Promo */}
       <Promo scrollY={scrollY} />
+
+      {/* 3. Featured */}
+      <Featured />
+
+      {/* 🔴 NUEVA SECCIÓN: Galería de Carrusel */}
+      <Carousel /> 
+
+      {/* 4. Footer */}
       <Footer />
     </main>
   )

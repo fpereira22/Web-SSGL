@@ -1,68 +1,87 @@
 "use client"
 
 import Image from "next/image"
-// 1. QUITA 'useScroll' y añade 'MotionValue'
 import { useTransform, motion, MotionValue } from "framer-motion"
-// 2. Importa 'useRef', 'useState', 'useEffect'
 import { useRef, useState, useEffect } from "react"
 
-// 3. Acepta 'scrollY' como prop
 export default function Section({ scrollY }: { scrollY: MotionValue<number> }) {
-  
-  // 4. Mantenemos el ref para medir el elemento
-  const container = useRef<HTMLDivElement>(null) 
+    
+    const container = useRef<HTMLDivElement>(null) 
 
-  // 5. Recreamos 'scrollYProgress' manualmente
-  const [elementTop, setElementTop] = useState(0)
-  const [elementHeight, setElementHeight] = useState(0)
-  const [screenHeight, setScreenHeight] = useState(0)
+    const [elementTop, setElementTop] = useState(0)
+    const [elementHeight, setElementHeight] = useState(0)
+    const [screenHeight, setScreenHeight] = useState(0)
 
-  useEffect(() => {
-    // Obtenemos las métricas del DOM solo en el cliente
-    // Esto se ejecuta después de que el componente se "hidrata"
-    if (container.current) {
-      setElementTop(container.current.offsetTop)
-      setElementHeight(container.current.clientHeight)
-    }
-    setScreenHeight(window.innerHeight)
-  }, [container]) // Depende del ref
+    useEffect(() => {
+        if (container.current) {
+            setElementTop(container.current.offsetTop)
+            setElementHeight(container.current.clientHeight)
+        }
+        setScreenHeight(window.innerHeight)
+    }, [container]) 
 
-  // 6. Recrea el 'offset: ["start end", "end start"]'
-  // 'start': Cuando el 'start' (top) del elemento toca el 'end' (bottom) del viewport
-  const start = elementTop - screenHeight
-  // 'end': Cuando el 'end' (bottom) del elemento toca el 'start' (top) del viewport
-  const end = elementTop + elementHeight
+    const start = elementTop - screenHeight
+    const end = elementTop + elementHeight
 
-  // 7. Crea el 'scrollYProgress' (valor de 0 a 1)
-  const scrollYProgress = useTransform(
-    scrollY,
-    [start, end], // Rango de entrada (píxeles de scroll)
-    [0, 1]        // Rango de salida (progreso)
-  )
+    const scrollYProgress = useTransform(
+        scrollY,
+        [start, end], 
+        [0, 1]        
+    )
 
-  // 8. Tu animación 'y' ahora funciona
-  const y = useTransform(scrollYProgress, [0, 1], ["-10vh", "10vh"])
+    const y = useTransform(scrollYProgress, [0, 1], ["-10vh", "10vh"])
 
-  return (
-    <div
-      ref={container} // El ref se queda aquí para medir
-      className="relative flex items-center justify-center h-screen overflow-hidden"
-      style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
-    >
-      <div className="fixed top-[-10vh] left-0 h-[120vh] w-full">
-        <motion.div style={{ y }} className="relative w-full h-full">
-          <Image src="/images/spiral-circles.jpg" fill alt="Abstract spiral circles" style={{ objectFit: "cover" }} />
-        </motion.div>
-      </div>
+    return (
+        <div
+            ref={container}
+            className="relative flex items-center justify-center h-screen overflow-hidden"
+            style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
+        >
+            <div className="fixed top-[-10vh] left-0 h-[120vh] w-full">
+                <motion.div style={{ y }} className="relative w-full h-full">
+                    
+                    {/* Imagen de fondo nítida */}
+                    <Image 
+                        src="/images/aconcagua-night.png" 
+                        fill 
+                        alt="Carretera de noche" 
+                        style={{ objectFit: "cover" }}
+                    />
+                </motion.div>
+            </div>
 
-      <h3 className="absolute top-12 right-6 text-white uppercase z-10 text-sm md:text-base lg:text-lg">
-        Anatomy of Possibility
-      </h3>
+            {/* TÍTULO: Posicionado ABSOLUTAMENTE en la parte superior central */}
+            <h3 className="absolute top-12 left-1/2 -translate-x-1/2 z-20 text-white text-xl md:text-3xl lg:text-5xl font-extrabold uppercase text-center">
+                Misión / Visión
+            </h3>
 
-      <p className="absolute bottom-12 right-6 text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-5xl z-10">
-        Every section is a frame for your story. Shape it, remix it, and let your content spill into unexpected patterns
-        that keep people scrolling.
-      </p>
-    </div>
-  )
+            {/* CONTENEDOR PRINCIPAL DE CONTENIDO */}
+            <div className="relative z-10 p-6 md:p-12 text-white max-w-7xl w-full">
+                
+                {/* 👇 GLASSMORPHISM: Fondo semitransparente y desenfocado 👇 */}
+                <div className="absolute inset-0 bg-white/10 backdrop-blur-md rounded-xl z-0 shadow-2xl"></div>
+
+                {/* Contenido (Misión/Visión) - Debe tener un z-index más alto que el fondo */}
+                <div className="relative z-10 flex flex-col md:flex-row justify-center items-start gap-8 md:gap-12">
+                    
+                    {/* Sección MISIÓN (Izquierda) */}
+                    <div className="flex-1 max-w-xl pr-6 py-4">
+                        <h4 className="text-3xl md:text-4xl font-bold mb-4 uppercase">Misión</h4>
+                        <p className="text-base md:text-lg leading-relaxed">
+En SSGL brindamos servicios de mantención vial y aseo industrial de alta calidad, comprometidos con la satisfacción de nuestros clientes mediante soluciones innovadoras, personal calificado y una gestión responsable que prioriza la seguridad, la eficiencia operativa y el respeto por el medio ambiente, contribuyendo activamente al desarrollo, conservación y mejora continua de la infraestructura vial del país                        </p>
+                    </div>
+
+                    {/* Separador Vertical */}
+                    <div className="hidden md:block border-l-2 border-white h-60"></div>
+
+                    {/* Sección VISIÓN (Derecha) */}
+                    <div className="flex-1 max-w-xl pl-6 py-4">
+                        <h4 className="text-3xl md:text-4xl font-bold mb-4 uppercase">Visión</h4>
+                        <p className="text-base md:text-lg leading-relaxed">
+Ser reconocidos a nivel nacional como una empresa líder en mantención vial y aseo industrial, destacando por la excelencia en la ejecución de nuestros servicios, la innovación constante, la sostenibilidad de nuestras operaciones y el compromiso de nuestro equipo humano, consolidando nuestra posición como un socio estratégico clave en la gestión y preservación de la infraestructura pública y privada del país                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
 }

@@ -123,3 +123,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+.text-outline-strong {
+  -webkit-text-stroke: 1px black;       /* Borde negro de 1px */
+  text-stroke: 1px black;
+  color: white;                         /* Relleno blanco */
+  -webkit-text-fill-color: white;
+}
+
+/* Borde LIGERO: Para el párrafo P (0.5px de grosor, para mejor legibilidad) */
+.text-outline-light {
+  -webkit-text-stroke: 0.15px black;     /* Borde negro muy fino de 0.5px */
+  text-stroke: 0.2px  black;
+  color: white;
+  -webkit-text-fill-color: white;
+}

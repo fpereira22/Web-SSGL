@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_bcf3b128c530488980bc4b20157bdf7c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_bcf3b128c530488980bc4b20157bdf7c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_bcf3b128c530488980bc4b20157bdf7c = L.map(
+                "map_bcf3b128c530488980bc4b20157bdf7c",
+                {
+                    center: [-33.47417, -70.69123],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_65d644c10264026ae327db29dd165eff = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_65d644c10264026ae327db29dd165eff.addTo(map_bcf3b128c530488980bc4b20157bdf7c);
+        
+    
+            var marker_3ae00911ffc3644568128df3c2257eea = L.marker(
+                [-33.562786, -70.710927],
+                {
+}
+            ).addTo(map_bcf3b128c530488980bc4b20157bdf7c);
+        
+    
+        var popup_3a59418704155ab74839c6e33ea563c9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4e0608bc74b7e839ad99d1e3d04a2dde = $(`<div id="html_4e0608bc74b7e839ad99d1e3d04a2dde" style="width: 100.0%; height: 100.0%;">         <div style="font-family: sans-serif; padding: 5px;">             <strong style="font-size: 1.1em;">Ruta 5</strong><br><br>             <p style="max-width:250px; color: #333;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>             <a href="https://www.google.com/maps/search/?api=1&query=-33.562786,-70.710927" target="_blank" style="color: #1a73e8; text-decoration: none; font-weight: 600;">                 Ver ubicación en Maps             </a>         </div>     </div>`)[0];
+                popup_3a59418704155ab74839c6e33ea563c9.setContent(html_4e0608bc74b7e839ad99d1e3d04a2dde);
+            
+        
+
+        marker_3ae00911ffc3644568128df3c2257eea.bindPopup(popup_3a59418704155ab74839c6e33ea563c9)
+        ;
+
+        
+    
+    
+            marker_3ae00911ffc3644568128df3c2257eea.bindTooltip(
+                `<div>
+                     Ruta 5
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_28d4319bd929436baa657aec4036e069 = L.marker(
+                [-33.476861, -70.685728],
+                {
+}
+            ).addTo(map_bcf3b128c530488980bc4b20157bdf7c);
+        
+    
+        var popup_49ee89411807a4a3f0e82f762e99a366 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8bbd9b6b2286320d49aabf8f6286b3a0 = $(`<div id="html_8bbd9b6b2286320d49aabf8f6286b3a0" style="width: 100.0%; height: 100.0%;">         <div style="font-family: sans-serif; padding: 5px;">             <strong style="font-size: 1.1em;">GV</strong><br><br>             <p style="max-width:250px; color: #333;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>             <a href="https://www.google.com/maps/search/?api=1&query=-33.476861,-70.685728" target="_blank" style="color: #1a73e8; text-decoration: none; font-weight: 600;">                 Ver ubicación en Maps             </a>         </div>     </div>`)[0];
+                popup_49ee89411807a4a3f0e82f762e99a366.setContent(html_8bbd9b6b2286320d49aabf8f6286b3a0);
+            
+        
+
+        marker_28d4319bd929436baa657aec4036e069.bindPopup(popup_49ee89411807a4a3f0e82f762e99a366)
+        ;
+
+        
+    
+    
+            marker_28d4319bd929436baa657aec4036e069.bindTooltip(
+                `<div>
+                     GV
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_5742dbf615a50fa8314b1523f7963cfa = L.marker(
+                [-33.497846, -70.664957],
+                {
+}
+            ).addTo(map_bcf3b128c530488980bc4b20157bdf7c);
+        
+    
+        var popup_586ebd701a5f5d6351c7a04aad0a2810 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_99853b98e1073f48d7ee5eca1bbd2437 = $(`<div id="html_99853b98e1073f48d7ee5eca1bbd2437" style="width: 100.0%; height: 100.0%;">         <div style="font-family: sans-serif; padding: 5px;">             <strong style="font-size: 1.1em;">Panamericana</strong><br><br>             <p style="max-width:250px; color: #333;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>             <a href="https://www.google.com/maps/search/?api=1&query=-33.497846,-70.664957" target="_blank" style="color: #1a73e8; text-decoration: none; font-weight: 600;">                 Ver ubicación en Maps             </a>         </div>     </div>`)[0];
+                popup_586ebd701a5f5d6351c7a04aad0a2810.setContent(html_99853b98e1073f48d7ee5eca1bbd2437);
+            
+        
+
+        marker_5742dbf615a50fa8314b1523f7963cfa.bindPopup(popup_586ebd701a5f5d6351c7a04aad0a2810)
+        ;
+
+        
+    
+    
+            marker_5742dbf615a50fa8314b1523f7963cfa.bindTooltip(
+                `<div>
+                     Panamericana
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_b2d38ea3e65174b29d5ae0a432e99f25 = L.marker(
+                [-33.359194, -70.703333],
+                {
+}
+            ).addTo(map_bcf3b128c530488980bc4b20157bdf7c);
+        
+    
+        var popup_9e2604292d9bbbdd4ebffd217d9a4788 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ef0f80116bcca2c5920b2afa342a0b9a = $(`<div id="html_ef0f80116bcca2c5920b2afa342a0b9a" style="width: 100.0%; height: 100.0%;">         <div style="font-family: sans-serif; padding: 5px;">             <strong style="font-size: 1.1em;">Nueva Aconcagua</strong><br><br>             <p style="max-width:250px; color: #333;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>             <a href="https://www.google.com/maps/search/?api=1&query=-33.359194,-70.703333" target="_blank" style="color: #1a73e8; text-decoration: none; font-weight: 600;">                 Ver ubicación en Maps             </a>         </div>     </div>`)[0];
+                popup_9e2604292d9bbbdd4ebffd217d9a4788.setContent(html_ef0f80116bcca2c5920b2afa342a0b9a);
+            
+        
+
+        marker_b2d38ea3e65174b29d5ae0a432e99f25.bindPopup(popup_9e2604292d9bbbdd4ebffd217d9a4788)
+        ;
+
+        
+    
+    
+            marker_b2d38ea3e65174b29d5ae0a432e99f25.bindTooltip(
+                `<div>
+                     Nueva Aconcagua
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

@@ -28,23 +28,31 @@ export default function Hero({ scrollY }: { scrollY: MotionValue<number> }) {
   )
 
   return (
-    // 6. Ya no necesitamos el 'ref' aquí
     <div className="h-screen overflow-hidden">
       <Header />
       <motion.div style={{ y }} className="relative h-full">
         <Image
           src="/images/hero2.png"
           fill
-          alt="Mountain landscape background"
+          alt="Freeway background"
           style={{ objectFit: "cover" }}
         />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
+
         <div className="absolute inset-0 flex items-center justify-start z-10">
-          <div className="text-left text-white max-w-3xl px-6">
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">Sociedad de Servicios Generales LTDA</h1>
-            <p className="text-sm md:text-base leading-relaxed mb-8">
+          <div className="text-left max-w-3xl px-6">
+            
+            {/* Título: Quitar borde y usar texto blanco simple */}
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight text-white">
+              Sociedad de Servicios Generales LTDA
+            </h1>
+            
+            {/* Párrafo: Quitar borde y usar texto blanco simple */}
+            <p className="text-sm md:text-base leading-relaxed mb-8 text-white"> 
               Líderes en servicios viales a escala nacional conectando al país!
               Somos especialistas en mantención vial y asistencia al usuario en las autopistas más importantes de Chile. Nuestra misión es garantizar la fluidez y seguridad de las rutas, asegurando la excelencia en la conservación de cada concesión y la total satisfacción de nuestros clientes
             </p>
+            
           </div>
         </div>
       </motion.div>
