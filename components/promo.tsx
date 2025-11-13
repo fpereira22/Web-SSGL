@@ -1,20 +1,51 @@
 "use client"
 
 import Image from "next/image"
-import { useScroll, useTransform, motion } from "framer-motion"
-import { useRef } from "react"
+// 1. QUITA 'useScroll' y añade 'MotionValue'
+import { useTransform, motion, MotionValue } from "framer-motion"
+// 2. Importa 'useRef', 'useState', 'useEffect'
+import { useRef, useState, useEffect } from "react"
 
-export default function Section() {
-  const container = useRef()
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start end", "end start"],
-  })
+// 3. Acepta 'scrollY' como prop
+export default function Section({ scrollY }: { scrollY: MotionValue<number> }) {
+  
+  // 4. Mantenemos el ref para medir el elemento
+  const container = useRef<HTMLDivElement>(null) 
+
+  // 5. Recreamos 'scrollYProgress' manualmente
+  const [elementTop, setElementTop] = useState(0)
+  const [elementHeight, setElementHeight] = useState(0)
+  const [screenHeight, setScreenHeight] = useState(0)
+
+  useEffect(() => {
+    // Obtenemos las métricas del DOM solo en el cliente
+    // Esto se ejecuta después de que el componente se "hidrata"
+    if (container.current) {
+      setElementTop(container.current.offsetTop)
+      setElementHeight(container.current.clientHeight)
+    }
+    setScreenHeight(window.innerHeight)
+  }, [container]) // Depende del ref
+
+  // 6. Recrea el 'offset: ["start end", "end start"]'
+  // 'start': Cuando el 'start' (top) del elemento toca el 'end' (bottom) del viewport
+  const start = elementTop - screenHeight
+  // 'end': Cuando el 'end' (bottom) del elemento toca el 'start' (top) del viewport
+  const end = elementTop + elementHeight
+
+  // 7. Crea el 'scrollYProgress' (valor de 0 a 1)
+  const scrollYProgress = useTransform(
+    scrollY,
+    [start, end], // Rango de entrada (píxeles de scroll)
+    [0, 1]        // Rango de salida (progreso)
+  )
+
+  // 8. Tu animación 'y' ahora funciona
   const y = useTransform(scrollYProgress, [0, 1], ["-10vh", "10vh"])
 
   return (
     <div
-      ref={container}
+      ref={container} // El ref se queda aquí para medir
       className="relative flex items-center justify-center h-screen overflow-hidden"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
