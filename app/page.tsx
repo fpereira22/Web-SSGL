@@ -1,3 +1,4 @@
+// page.tsx
 "use client"
 
 import { useEffect } from "react"
@@ -6,7 +7,6 @@ import Hero from "@/components/hero"
 import Featured from "@/components/featured"
 import Promo from "@/components/promo"
 import Footer from "@/components/footer"
-// 1. Importar el nuevo componente de carrusel
 import Carousel from "@/components/Carousel" 
 
 import { useMotionValue } from "framer-motion"
@@ -36,8 +36,9 @@ export default function Home() {
 
   return (
     <main>
-      {/* 1. Hero */}
-      <Hero scrollY={scrollY} />
+      {/* 1. Hero 
+          🔴 CAMBIO CLAVE: Se elimina la prop scrollY en Hero */}
+      <Hero /> 
 
       {/* 2. Promo */}
       <Promo scrollY={scrollY} />

@@ -6,13 +6,29 @@ import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
-// Asegúrese de que estas imágenes existan en /public/carousel
+// 🔴 MODIFICACIÓN: Rutas actualizadas a 9 imágenes en formato .webp
 const images = [
-  "/carousel/image1.png",
-  "/carousel/image2.png",
-  "/carousel/image3.png",
-  "/carousel/image4.png",
-  "/carousel/image5.png",
+  "/carousel/image1.webp",
+  "/carousel/image2.webp",
+  "/carousel/image3.webp",
+  "/carousel/image4.webp",
+  "/carousel/image5.webp",
+  "/carousel/image6.webp", // Nueva imagen 6
+  "/carousel/image7.webp", // Nueva imagen 7
+  "/carousel/image8.webp", // Nueva imagen 8
+  "/carousel/image9.webp", // Nueva imagen 9
+  "/carousel/image10.webp", // Nueva imagen 9
+  "/carousel/image11.webp", // Nueva imagen 9
+  "/carousel/image12.webp", // Nueva imagen 9
+  "/carousel/image13.webp", // Nueva imagen 9
+  "/carousel/image14.webp", // Nueva imagen 9
+  "/carousel/image15.webp", // Nueva imagen 9
+  "/carousel/image16.webp", // Nueva imagen 9
+  "/carousel/image17.webp", // Nueva imagen 9
+  // "/carousel/image18.webp", // Nueva imagen 9
+  // "/carousel/image19.webp", // Nueva imagen 9
+  // "/carousel/image20.webp", // Nueva imagen 9
+  // "/carousel/image21.webp", // Nueva imagen 9
 ]
 
 // --- Configuraciones de Animación (Variants) ---
@@ -24,8 +40,8 @@ const variants = {
     opacity: 0,
     filter: "blur(10px)",
     zIndex: 0,
-    // 🔴 CAMBIO: Duración de la transición reducida a 0.4s
-    transition: { duration: 0.4 }, 
+    // 🟢 Duración de la transición es 0.2s
+    transition: { duration: 0.2 }, 
   }),
   // Estado para la imagen anterior (izquierda)
   prev: {
@@ -34,8 +50,8 @@ const variants = {
     opacity: 0.7,
     filter: "blur(4px)",
     zIndex: 10,
-    // 🔴 CAMBIO: Duración de la transición reducida a 0.4s
-    transition: { duration: 0.4 }, 
+    // 🟢 Duración de la transición es 0.2s
+    transition: { duration: 0.2 }, 
   },
   // Estado para la imagen central (actual)
   center: {
@@ -44,8 +60,8 @@ const variants = {
     opacity: 1,
     filter: "blur(0px)",
     zIndex: 20,
-    // 🔴 CAMBIO: Duración de la transición reducida a 0.4s
-    transition: { duration: 0.4 }, 
+    // 🟢 Duración de la transición es 0.2s
+    transition: { duration: 0.2 }, 
   },
   // Estado para la imagen siguiente (derecha)
   next: {
@@ -54,8 +70,8 @@ const variants = {
     opacity: 0.7,
     filter: "blur(4px)",
     zIndex: 10,
-    // 🔴 CAMBIO: Duración de la transición reducida a 0.4s
-    transition: { duration: 0.4 }, 
+    // 🟢 Duración de la transición es 0.2s
+    transition: { duration: 0.2 }, 
   },
 }
 
@@ -91,7 +107,7 @@ export default function Carousel() {
       
       {/* CAMBIO: Título más pequeño (text-3xl) y menos margen (mb-12) en móvil */}
       <h2 className="text-3xl sm:text-4xl md:text-6xl font-extrabold uppercase mb-12 md:mb-16 text-white text-center">
-        Nuestra Flota y Maquinaria
+        Galería de Imágenes
       </h2>
 
       {/* Contenedor del Carrusel */}
@@ -105,8 +121,8 @@ export default function Carousel() {
           return (
             <AnimatePresence initial={false} key={src} custom={direction}>
                 <motion.div
-                  // 🔴 CAMBIO: Reducida la duración de la clase 'transition-all' de Tailwind
-                  className={`absolute w-[80%] h-full rounded-xl overflow-hidden cursor-pointer shadow-2xl transition-all duration-300 ease-in-out ${isGlassmorphism ? "bg-white/10 backdrop-blur-sm" : "bg-transparent"}`}
+                  // 🟢 Duración de la transición es 'duration-200'
+                  className={`absolute w-[80%] h-full rounded-xl overflow-hidden cursor-pointer shadow-2xl transition-all duration-200 ease-in-out ${isGlassmorphism ? "bg-white/10 backdrop-blur-sm" : "bg-transparent"}`}
                   key={src}
                   custom={direction}
                   variants={variants}
@@ -119,8 +135,9 @@ export default function Carousel() {
                     alt={`Galería Imagen ${i + 1}`}
                     fill
                     style={{ objectFit: "cover" }}
-                    // 🔴 CAMBIO: Reducida la duración de la clase 'transition-all' de Tailwind
-                    className={`transition-all duration-300 ease-in-out ${isGlassmorphism ? "opacity-50" : "opacity-100"}`}
+                    // 🟢 Duración de la transición es 'duration-200'
+                    sizes="(max-width: 768px) 80vw, 900px" 
+                    className={`transition-all duration-200 ease-in-out ${isGlassmorphism ? "opacity-50" : "opacity-100"}`}
                   />
                 </motion.div>
             </AnimatePresence>

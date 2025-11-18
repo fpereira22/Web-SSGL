@@ -43,7 +43,7 @@ export default function Section({ scrollY }: { scrollY: MotionValue<number> }) {
                     
                     {/* Imagen de fondo nítida */}
                     <Image 
-                        src="/images/aconcagua-night.png" 
+                        src="/images/aconcagua-night.webp" 
                         fill 
                         alt="Carretera de noche" 
                         style={{ objectFit: "cover" }}
@@ -70,7 +70,7 @@ export default function Section({ scrollY }: { scrollY: MotionValue<number> }) {
                         {/* Título (ya responsivo) */}
                         <h4 className="text-2xl md:text-4xl font-bold mb-4 uppercase">Misión</h4>
                         <p className="text-base md:text-lg leading-relaxed">
-En SSGL brindamos servicios de mantención vial y aseo industrial de alta calidad, comprometidos con la satisfacción de nuestros clientes mediante soluciones innovadoras, personal calificado y una gestión responsable que prioriza la seguridad, la eficiencia operativa y el respeto por el medio ambiente, contribuyendo activamente al desarrollo, conservación y mejora continua de la infraestructura vial del país                        </p>
+Nuestro objetivo es liderar los servicios de mantención vial de alta calidad, comprometidos con la satisfacción de nuestros clientes mediante soluciones innovadoras, personal calificado y una gestión responsable que prioriza la seguridad, la eficiencia operativa y el respeto por el medio ambiente, contribuyendo activamente al desarrollo, conservación y mejora continua de la infraestructura vial del país                        </p>
                     </div>
 
                     {/* Separador Vertical (ya responsivo) */}
@@ -82,7 +82,7 @@ En SSGL brindamos servicios de mantención vial y aseo industrial de alta calida
                         {/* Título (ya responsivo) */}
                         <h4 className="text-2xl md:text-4xl font-bold mb-4 uppercase">Visión</h4>
                         <p className="text-base md:text-lg leading-relaxed">
-Ser reconocidos a nivel nacional como una empresa líder en mantención vial y aseo industrial, destacando por la excelencia en la ejecución de nuestros servicios, la innovación constante, la sostenibilidad de nuestras operaciones y el compromiso de nuestro equipo humano, consolidando nuestra posición como un socio estratégico clave en la gestión y preservación de la infraestructura pública y privada del país                        </p>
+Ser reconocidos a nivel nacional como una empresa líder en mantención vial e innovación, destacando por la excelencia en la ejecución de nuestros servicios, la innovación constante, la sostenibilidad de nuestras operaciones y el compromiso de nuestro equipo humano, consolidando nuestra posición como un socio estratégico clave en la gestión y preservación de la infraestructura pública y privada del país                        </p>
                     </div>
                 </div>
             </div>

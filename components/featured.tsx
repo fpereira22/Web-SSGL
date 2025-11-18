@@ -36,61 +36,17 @@ export default function Featured() {
     // La interacción es permitida SOLAMENTE si mapActive es TRUE Y scrollLockActive es FALSE
     const allowMapInteraction = mapActive && !scrollLockActive;
 
-    // CONTENIDO DE EXPERIENCIA PROFESIONAL (completo y sin cortar)
-    const experienceContent = (
-        <>
-            <p className="text-base md:text-lg leading-relaxed text-gray-600 mb-6">
-                Contamos con una sólida trayectoria en la conservación, mantenimiento y asistencia de las principales concesiones viales del país. Nuestro compromiso con la excelencia operativa y la seguridad nos ha consolidado como un socio estratégico clave en la gestión de infraestructura. Actualmente, prestamos servicios especializados en las siguientes autopistas:
-            </p>
+    // Datos de las empresas de las que somos socios/proveedores
+    const companies = [
+        { name: "Autopista Central", img: "/images/partners/autopista-central.webp", services: ["Conservación Global"] },
+        { name: "Autopista Nueva Aconcagua", img: "/images/partners/autopista-aconcagua.webp", services: ["Conservación Global"] },
+        { name: "Autopista Nororiente", img: "/images/partners/autopista-nororiente.webp", services: ["Asistencia al Usuario"] },
+        { name: "Autopista Litoral Central", img: "/images/partners/autopista-litoral-central.webp", services: ["Asistencia al Usuario"] },
+        { name: "Autopista Los Libertadores", img: "/images/partners/autopista-los-libertadores.webp", services: ["Operadores de Grúa", "Aseo de Instalaciones"] },
+        { name: "Autopista Los Andes", img: "/images/partners/autopista-los-andes.webp", services: ["Operadores de Grúa", "Aseo de Instalaciones"] },
+    ];
 
-            <ul className="list-disc list-inside space-y-4 pl-4 text-gray-800">
-                <li className="font-bold text-gray-900">
-                    Autopista Central
-                    <ul className="list-disc list-inside ml-6 font-normal text-gray-600 mt-1">
-                        <li>Conservación Global</li>
-                    </ul>
-                </li>
-                
-                <li className="font-bold text-gray-900">
-                    Autopista Aconcagua
-                    <ul className="list-disc list-inside ml-6 font-normal text-gray-600 mt-1">
-                        <li>Conservación Global</li>
-                    </ul>
-                </li>
-                
-                <li className="font-bold text-gray-900">
-                    Autopista Nororiente
-                    <ul className="list-disc list-inside ml-6 font-normal text-gray-600 mt-1">
-                        <li>Asistencia al Usuario</li>
-                    </ul>
-                </li>
-                
-                <li className="font-bold text-gray-900">
-                    Autopista Litoral Central
-                    <ul className="list-disc list-inside ml-6 font-normal text-gray-600 mt-1">
-                        <li>Asistencia al Usuario</li>
-                    </ul>
-                </li>
-                
-                <li className="font-bold text-gray-900">
-                    Autopista Los Libertadores
-                    <ul className="list-disc list-inside ml-6 font-normal text-gray-600 mt-1">
-                        <li>Operadores de Grúa</li>
-                        <li>Aseo de Instalaciones</li>
-                    </ul>
-                </li>
-                
-                <li className="font-bold text-gray-900">
-                    Autopista Los Andes
-                    <ul className="list-disc list-inside ml-6 font-normal text-gray-600 mt-1">
-                        <li>Operadores de Grúa</li>
-                        <li>Aseo de Instalaciones</li>
-                    </ul>
-                </li>
-            </ul>
-        </>
-    );
-    
+
     const mapEmbedUrl = "/folium_map.html"; 
 
     return (
@@ -103,17 +59,46 @@ export default function Featured() {
             </h2>
 
             {/* Contenedor Principal (Dos Columnas) */}
-            {/* Se añadió lg:items-start para alinear las columnas desde arriba */}
-            <div className="flex flex-col lg:flex-row max-w-7xl w-full bg-white shadow-xl rounded-xl overflow-hidden lg:items-start">
+            <div className="flex flex-col lg:flex-row max-w-7xl w-full bg-white shadow-xl rounded-xl overflow-hidden lg:items-start border-4 border-solid border-[#0A9345]">
                 
                 {/* Columna Izquierda: Experiencia Profesional y Texto */}
-                {/* CAMBIO: Padding reducido en móvil (p-6) */}
                 <div className="flex-1 p-6 md:p-12 flex flex-col justify-start">
                     {/* CAMBIO: Subtítulo más pequeño (text-2xl) en móvil */}
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 uppercase text-gray-900">
                         Experiencia Profesional
                     </h3>
-                    {experienceContent}
+                    <p className="text-base md:text-lg leading-relaxed text-gray-600 mb-8">
+                        Contamos con una sólida trayectoria en la conservación, mantenimiento y asistencia de las principales concesiones viales del país. Nuestro compromiso con la excelencia operativa y la seguridad nos ha consolidado como un socio estratégico clave en la gestión de infraestructura. Actualmente, prestamos servicios especializados en las siguientes autopistas:
+                    </p>
+
+                    {/* 🔴 NUEVO: Grid de Empresas */}
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-4">
+                        {companies.map((company) => (
+                            <div key={company.name} className="flex flex-col items-center text-center">
+                                {/* Contenedor de Imagen con Borde Verde */}
+                                <div className="relative w-full h-20 sm:h-24 mb-2 p-2 border-4 border-solid border-[#0A9345] rounded-lg bg-white overflow-hidden shadow-md">
+                                    <Image
+                                        // 🔴 CLASES AGREGADAS AQUÍ PARA EL EFECTO DE ZOOM
+                                        className="transition-transform duration-500 ease-in-out hover:scale-110" 
+                                        src={company.img} 
+                                        alt={company.name}
+                                        fill
+                                        style={{ objectFit: "contain" }}
+                                    />
+                                </div>
+                                {/* Nombre de la Empresa */}
+                                <p className="text-sm font-semibold text-gray-800 leading-tight">
+                                    {company.name}
+                                </p>
+                                {/* Servicios */}
+                                <ul className="text-xs text-gray-500 leading-snug mt-1 space-y-0.5">
+                                    {company.services.map((service, index) => (
+                                        <li key={index}>{service}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Separador Vertical (en pantallas grandes) */}

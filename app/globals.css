@@ -138,3 +138,12 @@
   color: white;
   -webkit-text-fill-color: white;
 }
+
+.custom-text-stroke {
+    /* El color #0A9345 con un grosor de 1px */
+    text-shadow: 
+        -0px -0px 0 #0A9345,  
+         0px -0px 0 #0A9345,
+        -0px -0px 0 #0A9345,
+         0px 0px 0 #0A9345;
+}

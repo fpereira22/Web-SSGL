@@ -9,8 +9,8 @@ export default function Footer() {
     linkedin: "https://www.linkedin.com/company/soc-servicios-generales-ltda",
     x: "https://x.com/SSGL_CL", // Usamos 'X' (antes Twitter)
     instagram: "https://www.instagram.com/tuempresa/",
+    denuncias: "/denuncias", // 🔴 CAMBIO: Ruta a la nueva página de denuncias
     email: "mailto:contacto@ssgl.cl",
-    denuncias: "/centro-de-denuncias", // Ruta a crear
   }
 
   return (
@@ -72,7 +72,7 @@ export default function Footer() {
               <h1 className="text-[14vw] sm:text-[12vw] lg:text-[10vw] leading-[0.9] mt-2 sm:mt-4 lg:mt-8 text-white font-bold tracking-tight">
                 SSGL.CL
               </h1>
-              <p className="text-white text-sm sm:text-base">© SSGL - 2025 - Todos los derechos reservados</p>
+              <p className="text-white text-sm sm:text-base">© SSGL Departamento I+D - 2025 - Todos los derechos reservados</p>
             </div>
           </div>
         </div>
