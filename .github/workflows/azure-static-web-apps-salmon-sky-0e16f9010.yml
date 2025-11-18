@@ -29,7 +29,7 @@ jobs:
           action: "upload"
           ###### Configuraciones de Repositorio/Build ######
           app_location: "/" # Raíz de tu código Next.js
-          api_location: "" # Vacío si no usas Azure Functions
+          api_location: "api" # Vacío si no usas Azure Functions
           output_location: ".next" # Directorio de salida corregido para Next.js
           ###### Fin de Configuraciones de Repositorio/Build ######
 
