@@ -89,7 +89,7 @@ export default function DenunciaForm() {
         
         try {
             // Usar la ruta relativa. Azure Static Web Apps la enrutará automáticamente a la Function.
-            const apiEndpoint = "/api/SubmitDenuncia";
+            const apiEndpoint = "/api/submit-denuncia";
             
             const response = await fetch(apiEndpoint, {
                 method: 'POST',
