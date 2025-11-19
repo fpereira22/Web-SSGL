@@ -10,6 +10,7 @@ import Footer from "@/components/footer"
 import Carousel from "@/components/Carousel" 
 
 import { useMotionValue } from "framer-motion"
+import ContactForm from "@/components/ContactForm"
 
 export default function Home() {
   
@@ -48,6 +49,7 @@ export default function Home() {
 
       {/* 🔴 NUEVA SECCIÓN: Galería de Carrusel */}
       <Carousel /> 
+      {/* <ContactForm />  */}
 
       {/* 4. Footer */}
       <Footer />

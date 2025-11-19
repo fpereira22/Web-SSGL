@@ -4,34 +4,29 @@ import { Instagram, Linkedin, Mail, Twitter, ShieldAlert } from "lucide-react"
 
 export default function Footer() {
     
-  // URLs de ejemplo (reemplaza con las reales)
   const socialLinks = {
     linkedin: "https://www.linkedin.com/company/soc-servicios-generales-ltda",
-    x: "https://x.com/SSGL_CL", // Usamos 'X' (antes Twitter)
+    x: "https://x.com/SSGL_CL", 
     instagram: "https://www.instagram.com/tuempresa/",
-    denuncias: "/denuncias", // 🔴 CAMBIO: Ruta a la nueva página de denuncias
+    denuncias: "/denuncias", 
     email: "mailto:contacto@ssgl.cl",
   }
 
   return (
-    <div
-      className="relative h-[300px] sm:h-[400px] lg:h-[500px] max-h-[500px]" 
-      style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
-    >
-      <div className="relative h-[calc(100vh+300px)] sm:h-[calc(100vh+400px)] lg:h-[calc(100vh+500px)] -top-[100vh]">
+    <footer className="bg-neutral-900 py-8 sm:py-12 px-4 sm:px-6 w-full"> 
         
-        <div className="h-[300px] sm:h-[400px] lg:h-[500px] sticky top-[calc(100vh-300px)] sm:top-[calc(100vh-400px)] lg:top-[calc(100vh-500px)]">
-          
-          <div className="bg-neutral-900 py-4 sm:py-6 lg:py-8 px-4 sm:px-6 h-full w-full flex flex-col justify-between">
+        {/* 🟢 MODIFICACIÓN 1: Usamos max-w-7xl y mx-auto para el padding lateral. */}
+        {/* 🟢 MODIFICACIÓN 2: Usamos grid para alinear el bloque de contacto a la izquierda */}
+        <div className="max-w-7xl mx-auto flex flex-col justify-between">
             
-            {/* 🔴 CAMBIO CLAVE: Este contenedor solo contendrá la columna "Contacto" */}
-            <div className="flex shrink-0 gap-8 sm:gap-12 lg:gap-20">
+            {/* Bloque Superior: Contacto y Redes */}
+            {/* 🟢 MODIFICACIÓN 3: En lugar de flex con gap, usamos un grid en md para que se alinee a la izquierda y use el espacio. */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 lg:gap-20">
               
-              {/* Columna de Contacto (ÚNICA) */}
+              {/* Columna de Contacto (Va a la Izquierda) */}
               <div className="flex flex-col gap-1 sm:gap-2">
                 <h3 className="mb-1 sm:mb-2 uppercase text-neutral-400 text-xs sm:text-sm">Contacto</h3>
                 
-                {/* Email de Contacto (mailto) */}
                 <a
                   href={socialLinks.email}
                   className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base flex items-center gap-2"
@@ -39,7 +34,6 @@ export default function Footer() {
                   <Mail size={16} /> contacto@ssgl.cl
                 </a>
                 
-                {/* Centro de Denuncias */}
                 <Link
                   href={socialLinks.denuncias}
                   className="text-white hover:text-neutral-400 transition-colors duration-300 text-sm sm:text-base flex items-center gap-2"
@@ -66,17 +60,22 @@ export default function Footer() {
                     </a>
                 </div>
               </div>
+              
+              {/* La segunda columna del grid queda vacía en md:grid-cols-2, empujando el contenido a la izquierda. */}
             </div>
-            
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-0">
-              <h1 className="text-[14vw] sm:text-[12vw] lg:text-[10vw] leading-[0.9] mt-2 sm:mt-4 lg:mt-8 text-white font-bold tracking-tight">
+
+            {/* Separador */}
+            <hr className="border-neutral-700 my-6" />
+
+            {/* Bloque Inferior: Logo y Copyright */}
+            {/* 🟢 MODIFICACIÓN 4: flex justify-between asegura que el logo y el copyright se separen a los extremos. */}
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0">
+              <h1 className="text-xl sm:text-2xl text-white font-bold tracking-tight">
                 SSGL.CL
               </h1>
               <p className="text-white text-sm sm:text-base">© SSGL Departamento I+D - 2025 - Todos los derechos reservados</p>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
+    </footer>
   )
 }
